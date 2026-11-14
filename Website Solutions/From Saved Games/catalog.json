@@ -1,0 +1,499 @@
+{
+  "format": "mancala-mini-catalog",
+  "version": 1,
+  "rules": "kalah6-capture-opposite-nonempty-perspective-future-score-v1",
+  "ranking": "colex-bars-v1",
+  "identity": {
+    "version": 1,
+    "rules": "kalah6-capture-opposite-nonempty-perspective-future-score-v1",
+    "ranking": "colex-bars-v1",
+    "stop_at_stones": 17,
+    "covered_stones": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      44,
+      45,
+      46,
+      47,
+      48
+    ],
+    "sources": {
+      "2": "4db6e5530950e93a89c43aadc27286645ba57d856947c9bf17b15d9083222fe0",
+      "3": "5749862d6b92139a28b9f91f85a8863adbaf944c1c918e33ecff815629c0eda9",
+      "4": "bc552091307b54b9cfdd53f928d767ee4b5403251155fdd1f1fb09c07137e042",
+      "5": "2497ddedaac6d28f7b1b4aa4bedd02733a90e2f44280ac718e24be364ec534f4",
+      "6": "e86be84add7cec3fead52715b97bcbe223f4bdc2deaec3eb1c80ed9c8155e84d",
+      "7": "a2460679c84f0c291f167bac9cffd8edff33e9f09334d50df32bbb5edd388874",
+      "8": "484f5f2e464029a1cb0bee840fed0c2ebfd4cfa004dd0e5756d72083550b70cf",
+      "9": "47e38e166d3abeaed757add5f8337fca1cf790b0a6cc46017ccf7a1f4e19eb4a",
+      "10": "03e84b28cc1fa8d90122b20f193163aa7a15f74a0b3099087ec0b5e3d2afe4f2",
+      "11": "13bb24c23e73a9b64f7566c0826507efcdf5914cf75826ca3a5f602c18d7003c",
+      "12": "c012495f54ac07b5ed6b57f4ce132953324f1886488006cb279196121043507c",
+      "13": "f080eee5c02d2103a437ee44796179feec731ebc74a98876e53d098f3086293f",
+      "14": "d9ad9399e219167192ab8e54e20740e68df3fa606ca7bb7336eddaebc93ed871",
+      "15": "365375a4a934d8a7e278c8eb17ab22ed939143da2d8c0962a84dc2ceed462999",
+      "16": "38397755848bebbcd24547943b69bd23e0d472d365345e83ae5e75d7e34c4048",
+      "17": "56a58df23b448f74246496ff29c4a596939068269746ad1bc091b03deb6c504c",
+      "18": "b01bdb32c13b0fc188b2b821360f872f9734021f21de22781f356ba23de9d508",
+      "19": "e9ff0b62d502b93c9cf6739a8aebfbb82236bb4463f415543fe0a40a068581be",
+      "20": "3af7e13373e488c32aa5866a876602f2a66ad4d4cd3ce68825980126e45d9284",
+      "21": "586306a42f63881e8e4b786d3110df62f47f37897e3c74a22388654aa2ebadea",
+      "22": "6d06021e6ee39ccfef1a2ce08d247d007923d32d75f4b03dfe4c5d38f109183c",
+      "23": "d5dca476613c5cb87d193f51a0474544dafebe34628a2ba211963ed5c2566e90",
+      "24": "f5f0704a97513a710e5a09df30acd6935868781696b1f3e204f85a9d18905903",
+      "25": "e1d8eb4918de9d9d0dff68b3bf0e7a287ad4368469e85186ad5dd46122f0f588",
+      "26": "2ae5c27acfa44ab15e4cb779e7e428facd43f2d73e1719ea14e37ba8a2bf35cb",
+      "27": "bf0eb3de1ab4ef1cbdf76983a415c503888a86d0db23df6373350e7cad4780e6",
+      "28": "aeaa6bc99ac66011c555c7c9e9f004887c961a3099c8e0beab6b8a8e9bd328c4",
+      "29": "c07d67266447e04838798da35e0ba897dcb4b21a0172d7a4b08f3eea9a42856b",
+      "30": "14f56fcbd4bb4ef944f8a05e39d40a1d2f98eeca43c4e1d7e21e501279bc26ea",
+      "31": "186d17ac04b19d4c230ffb42bfd29be0e11b227876b2de9425268f09f931450e",
+      "32": "71a2aa753f0daeb291fe6a8807398fca2b79d0e033224cabda3555e75244f3c7",
+      "33": "e91a5292c626244afff3aec85d04df9ef0514f785e9c2c9c3a78fcf64940fcba",
+      "34": "8f6ebf9f2e7da97b8e1ec84452b245a25288c9e06fd4763d24dcbc7cc1858544",
+      "35": "4b1987b8f9cc44f7573a02b9d8dae80352e17265f0af247895b858fe9b63a9ac",
+      "36": "421f450d4337947601fe8cac8badef5c7c833acc637e18c678f870a94229ad8e",
+      "37": "5dcbb85860e8c7934fd3bb2a5e2ba16f84e6af93a217a726c4cf2e430b521881",
+      "38": "227af056a634265653741a1ade88f1e9151d1ff3dd3fbfa713379e42fba262b2",
+      "39": "a5552a3c852323a4e094cb9c25112a9daa9dca0e088be631641296873c3cbe58",
+      "40": "90a8f5a614f63341b3551a1469d7bc9795d3343473eed6156fe7759015f73912",
+      "41": "b0ee1d400b378a4826571505be2aa26818e5722104176065f8ab702cb4db240b",
+      "42": "43d15b0c8cf7753f152ce98e8491691ffaa58dc575152e4639393b195515bbed",
+      "43": "711f68826205a9aa0bd86bdd3e84c3f74dd1da13fa598952b8f64debac595a6e",
+      "44": "b6d2d29fce11a2d9fa47452bfc2edccf23009d295d9e96dc1dce450154feee53",
+      "45": "4a5702d6da3fc922dc02b42fc7fc01af42c69e3554e0e70fc5efc8dec4b41998",
+      "46": "f9d6e8721d5e5611ed9da9f21cdd08fe7b6afdaafa730faa1cd06c3c20eaafb1",
+      "47": "2d1ba812a228bcd715098edb5471cb308d1cdc094dffc2d336368fdc0ad4f7a6",
+      "48": "545e392e743d1ac172fb4de8be0660aa1e521efc782937390425df4d864b7c1c"
+    },
+    "collection": "saved-game-neighborhoods-v1",
+    "depth_unit": "single move, including bonus moves",
+    "tiers": "independent per-path optimal/within-loss/unrestricted budgets; endpoint has all child scores",
+    "seeds": "every nonterminal saved-game board at stones 18-43",
+    "additive": true
+  },
+  "collection_revision": 14806,
+  "discovery_complete": true,
+  "layers": [
+    {
+      "stone": 43,
+      "file": "generation-f3e57107a05f/43-part-001.mini",
+      "bytes": 14335,
+      "positions": 1095,
+      "rank_min": 4841013248,
+      "rank_max": 93507682303,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "4e006f706b72da7c96e6a25c1b37db312957eaf4d1808cd92eae99b14935fb99"
+    },
+    {
+      "stone": 42,
+      "file": "generation-f3e57107a05f/42-part-001.mini",
+      "bytes": 113394,
+      "positions": 9482,
+      "rank_min": 2030895104,
+      "rank_max": 76178259967,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "6db5a10c52a26349fd83c8b4f6917bcf59f5f75018ac8d48448df977925a5b65"
+    },
+    {
+      "stone": 41,
+      "file": "generation-f3e57107a05f/41-part-001.mini",
+      "bytes": 449356,
+      "positions": 43588,
+      "rank_min": 1266941952,
+      "rank_max": 60397060095,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "8fd33488947d0a7fb6622fee980a97c213aee077ce869f87f10815237a35aba4"
+    },
+    {
+      "stone": 40,
+      "file": "generation-f3e57107a05f/40-part-001.mini",
+      "bytes": 1049445,
+      "positions": 111065,
+      "rank_min": 429588480,
+      "rank_max": 47620685823,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "9efa979d30114f9f320795f640baafb3ae316032b4f05c6d30ff42a8d797a221"
+    },
+    {
+      "stone": 39,
+      "file": "generation-f3e57107a05f/39-part-001.mini",
+      "bytes": 1658652,
+      "positions": 182013,
+      "rank_min": 205914112,
+      "rank_max": 37349031935,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "9d65ed4f7a6874dcd9fb2b93c13b4556683cb4249fe059829033fa30dc8f9832"
+    },
+    {
+      "stone": 38,
+      "file": "generation-f3e57107a05f/38-part-001.mini",
+      "bytes": 2064233,
+      "positions": 229823,
+      "rank_min": 92798976,
+      "rank_max": 29131800575,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "22985b72ff84d2bc10c264c87c8c5fd99cc995136ce19dfb442c5789f7d8bc6a"
+    },
+    {
+      "stone": 37,
+      "file": "generation-f3e57107a05f/37-part-001.mini",
+      "bytes": 2257328,
+      "positions": 250396,
+      "rank_min": 42729472,
+      "rank_max": 22591569919,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "4e1d5c3535a7b4efc5f70a585818bce1f49ad02f57f960c240623beba03ea1ef"
+    },
+    {
+      "stone": 36,
+      "file": "generation-f3e57107a05f/36-part-001.mini",
+      "bytes": 2296898,
+      "positions": 255810,
+      "rank_min": 34996224,
+      "rank_max": 17414225919,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "74a4efd6e5f6dbeec765bfbad897261c125ac36623b087d3c01818e590b8d77b"
+    },
+    {
+      "stone": 35,
+      "file": "generation-f3e57107a05f/35-part-001.mini",
+      "bytes": 2287187,
+      "positions": 261085,
+      "rank_min": 21692416,
+      "rank_max": 13338017791,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "d2bddc61f03c1ddbcd8827d41a928fed3ce90b4b340af578a10a9ba39e88e357"
+    },
+    {
+      "stone": 34,
+      "file": "generation-f3e57107a05f/34-part-001.mini",
+      "bytes": 2248037,
+      "positions": 271091,
+      "rank_min": 13238272,
+      "rank_max": 10149167103,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "9227e3f6867b4e8ee356e08de24225e38241434bd7b5c17beea2e4d698031208"
+    },
+    {
+      "stone": 33,
+      "file": "generation-f3e57107a05f/33-part-001.mini",
+      "bytes": 2206197,
+      "positions": 289393,
+      "rank_min": 4653056,
+      "rank_max": 7668105215,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "b85e5630f15be6111d3c0e92ab371652107e9ce59a33d00d6ea67ae114a912b0"
+    },
+    {
+      "stone": 32,
+      "file": "generation-f3e57107a05f/32-part-001.mini",
+      "bytes": 2125278,
+      "positions": 304756,
+      "rank_min": 2621440,
+      "rank_max": 5751308287,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "8ce51b513ca0b74ad5fdd843ad1574e131d89b26ee9239bb5e9f49fe7e1ad4f9"
+    },
+    {
+      "stone": 31,
+      "file": "generation-f3e57107a05f/31-part-001.mini",
+      "bytes": 1963841,
+      "positions": 305360,
+      "rank_min": 786432,
+      "rank_max": 4279959551,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "3959c870e8670cbe4ed788f04f52fa2643b3edee70fb6ca57a2935aefb45cc2f"
+    },
+    {
+      "stone": 30,
+      "file": "generation-f3e57107a05f/30-part-001.mini",
+      "bytes": 1772202,
+      "positions": 297001,
+      "rank_min": 131072,
+      "rank_max": 3159097343,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "8e5cfb9a01fbd5259cd0b533a9bdade8f1daa7f63206b2d289242c8807cfe5aa"
+    },
+    {
+      "stone": 29,
+      "file": "generation-f3e57107a05f/29-part-001.mini",
+      "bytes": 1558966,
+      "positions": 283612,
+      "rank_min": 0,
+      "rank_max": 2311520255,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "e2728bd0d1aeb13e331ab5b0005b65fe544d07c2f12c8e907646bb747958d9f4"
+    },
+    {
+      "stone": 28,
+      "file": "generation-f3e57107a05f/28-part-001.mini",
+      "bytes": 1355176,
+      "positions": 267394,
+      "rank_min": 0,
+      "rank_max": 1675689983,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "e1444ac0558a2c5d546c8490bb7d2370aee5af077084ab52bc4357336d41f2d9"
+    },
+    {
+      "stone": 27,
+      "file": "generation-f3e57107a05f/27-part-001.mini",
+      "bytes": 1188846,
+      "positions": 257367,
+      "rank_min": 0,
+      "rank_max": 1203109887,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "e32d40b003de119479ef0b37d355092e5c1d1c5566db95282040e836286666d4"
+    },
+    {
+      "stone": 26,
+      "file": "generation-f3e57107a05f/26-part-001.mini",
+      "bytes": 1081910,
+      "positions": 258450,
+      "rank_min": 0,
+      "rank_max": 854851583,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "907aa5171b768600a95e6e58a94f6d19a025267c3766200b6d5930ed70cf8e94"
+    },
+    {
+      "stone": 25,
+      "file": "generation-f3e57107a05f/25-part-001.mini",
+      "bytes": 988697,
+      "positions": 256555,
+      "rank_min": 0,
+      "rank_max": 600702975,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "774dc26e0d9e41ac78b490599b8cccfa55471eba5d7479d30c53f81788571cd1"
+    },
+    {
+      "stone": 24,
+      "file": "generation-f3e57107a05f/24-part-001.mini",
+      "bytes": 910820,
+      "positions": 252580,
+      "rank_min": 0,
+      "rank_max": 417136639,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "021e9abc77cbf23d6d1aa069b68baa016dd23f0c17f3339341f3fd0f9112bfe0"
+    },
+    {
+      "stone": 23,
+      "file": "generation-f3e57107a05f/23-part-001.mini",
+      "bytes": 854396,
+      "positions": 249668,
+      "rank_min": 0,
+      "rank_max": 285999103,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "6eaf44c4d5bb772278903702a53365c0720ea547c7630cb1726c47b69822184b"
+    },
+    {
+      "stone": 22,
+      "file": "generation-f3e57107a05f/22-part-001.mini",
+      "bytes": 812604,
+      "positions": 247018,
+      "rank_min": 0,
+      "rank_max": 193462271,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "53a3ca5f25352e96ff4e4fe1718a6d89c712066e5c54be5e98b7b484dece127d"
+    },
+    {
+      "stone": 21,
+      "file": "generation-f3e57107a05f/21-part-001.mini",
+      "bytes": 777444,
+      "positions": 243170,
+      "rank_min": 0,
+      "rank_max": 128974847,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "814633f9287f5f324927691e02ee653c27ec939d1bf3e9597771abd3e99da5b2"
+    },
+    {
+      "stone": 20,
+      "file": "generation-f3e57107a05f/20-part-001.mini",
+      "bytes": 737669,
+      "positions": 235320,
+      "rank_min": 0,
+      "rank_max": 84672511,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "dd5673d14b812d049f065aa4cec72a0667ba2cc2dd8da01304720b04da1a47f5"
+    },
+    {
+      "stone": 19,
+      "file": "generation-f3e57107a05f/19-part-001.mini",
+      "bytes": 707723,
+      "positions": 229010,
+      "rank_min": 0,
+      "rank_max": 54591487,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "5bac0ef1aadf595889c8c9d5fa53d4325f0dec36742a8fd02369e07a77312b60"
+    },
+    {
+      "stone": 18,
+      "file": "generation-f3e57107a05f/18-part-001.mini",
+      "bytes": 693056,
+      "positions": 226561,
+      "rank_min": 0,
+      "rank_max": 34603007,
+      "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
+      "sha256": "7afa4634a2e038d98ff5b89d91cc6d1eef7103f113e25c33e27514ae4d26c651"
+    }
+  ],
+  "positions": 5818663,
+  "bytes": 34173690,
+  "by_stone": [
+    {
+      "stone": 43,
+      "positions": 1095,
+      "bytes": 14335
+    },
+    {
+      "stone": 42,
+      "positions": 9482,
+      "bytes": 113394
+    },
+    {
+      "stone": 41,
+      "positions": 43588,
+      "bytes": 449356
+    },
+    {
+      "stone": 40,
+      "positions": 111065,
+      "bytes": 1049445
+    },
+    {
+      "stone": 39,
+      "positions": 182013,
+      "bytes": 1658652
+    },
+    {
+      "stone": 38,
+      "positions": 229823,
+      "bytes": 2064233
+    },
+    {
+      "stone": 37,
+      "positions": 250396,
+      "bytes": 2257328
+    },
+    {
+      "stone": 36,
+      "positions": 255810,
+      "bytes": 2296898
+    },
+    {
+      "stone": 35,
+      "positions": 261085,
+      "bytes": 2287187
+    },
+    {
+      "stone": 34,
+      "positions": 271091,
+      "bytes": 2248037
+    },
+    {
+      "stone": 33,
+      "positions": 289393,
+      "bytes": 2206197
+    },
+    {
+      "stone": 32,
+      "positions": 304756,
+      "bytes": 2125278
+    },
+    {
+      "stone": 31,
+      "positions": 305360,
+      "bytes": 1963841
+    },
+    {
+      "stone": 30,
+      "positions": 297001,
+      "bytes": 1772202
+    },
+    {
+      "stone": 29,
+      "positions": 283612,
+      "bytes": 1558966
+    },
+    {
+      "stone": 28,
+      "positions": 267394,
+      "bytes": 1355176
+    },
+    {
+      "stone": 27,
+      "positions": 257367,
+      "bytes": 1188846
+    },
+    {
+      "stone": 26,
+      "positions": 258450,
+      "bytes": 1081910
+    },
+    {
+      "stone": 25,
+      "positions": 256555,
+      "bytes": 988697
+    },
+    {
+      "stone": 24,
+      "positions": 252580,
+      "bytes": 910820
+    },
+    {
+      "stone": 23,
+      "positions": 249668,
+      "bytes": 854396
+    },
+    {
+      "stone": 22,
+      "positions": 247018,
+      "bytes": 812604
+    },
+    {
+      "stone": 21,
+      "positions": 243170,
+      "bytes": 777444
+    },
+    {
+      "stone": 20,
+      "positions": 235320,
+      "bytes": 737669
+    },
+    {
+      "stone": 19,
+      "positions": 229010,
+      "bytes": 707723
+    },
+    {
+      "stone": 18,
+      "positions": 226561,
+      "bytes": 693056
+    }
+  ],
+  "collection": "saved-game-neighborhoods",
+  "settings": {
+    "optimal_depth": 8,
+    "near_depth": 6,
+    "any_depth": 4,
+    "stone_loss": 3
+  },
+  "distinct_games": 141,
+  "source_records": 141,
+  "seed_positions": 2448,
+  "additive_collection": true,
+  "depth_meaning": "moves played plus all legal move scores at each endpoint"
+}
