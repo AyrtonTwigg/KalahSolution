@@ -86,414 +86,414 @@
     "seeds": "every nonterminal saved-game board at stones 18-43",
     "additive": true
   },
-  "collection_revision": 14806,
+  "collection_revision": 25771,
   "discovery_complete": true,
   "layers": [
     {
       "stone": 43,
-      "file": "generation-f3e57107a05f/43-part-001.mini",
-      "bytes": 14335,
-      "positions": 1095,
-      "rank_min": 4841013248,
+      "file": "generation-6ed60ffb2f3e/43-part-001.mini",
+      "bytes": 15328,
+      "positions": 1154,
+      "rank_min": 4034592768,
       "rank_max": 93507682303,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "4e006f706b72da7c96e6a25c1b37db312957eaf4d1808cd92eae99b14935fb99"
+      "sha256": "ca408cb43873cfebe9436a758ea4f49fd9578afc3fc78e6a1b05b4652f07d8ad"
     },
     {
       "stone": 42,
-      "file": "generation-f3e57107a05f/42-part-001.mini",
-      "bytes": 113394,
-      "positions": 9482,
-      "rank_min": 2030895104,
-      "rank_max": 76178259967,
+      "file": "generation-6ed60ffb2f3e/42-part-001.mini",
+      "bytes": 119469,
+      "positions": 9835,
+      "rank_min": 2153381888,
+      "rank_max": 76178653183,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "6db5a10c52a26349fd83c8b4f6917bcf59f5f75018ac8d48448df977925a5b65"
+      "sha256": "97889b8dc4bb682813665bb6cc18260d35ea24cf1f13d190e1f95bb346d3386f"
     },
     {
       "stone": 41,
-      "file": "generation-f3e57107a05f/41-part-001.mini",
-      "bytes": 449356,
-      "positions": 43588,
-      "rank_min": 1266941952,
+      "file": "generation-6ed60ffb2f3e/41-part-001.mini",
+      "bytes": 477768,
+      "positions": 45323,
+      "rank_min": 898105344,
       "rank_max": 60397060095,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "8fd33488947d0a7fb6622fee980a97c213aee077ce869f87f10815237a35aba4"
+      "sha256": "cd03268187cc7d0380d8222beb016c275f74c2d1790a2fc9b1121e5588c8b5d4"
     },
     {
       "stone": 40,
-      "file": "generation-f3e57107a05f/40-part-001.mini",
-      "bytes": 1049445,
-      "positions": 111065,
-      "rank_min": 429588480,
+      "file": "generation-6ed60ffb2f3e/40-part-001.mini",
+      "bytes": 1176466,
+      "positions": 123733,
+      "rank_min": 567738368,
       "rank_max": 47620685823,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "9efa979d30114f9f320795f640baafb3ae316032b4f05c6d30ff42a8d797a221"
+      "sha256": "7566c2b713d7ec82a164ae549b86d2ea7fddf781629cdca63f9386268cfa9da9"
     },
     {
       "stone": 39,
-      "file": "generation-f3e57107a05f/39-part-001.mini",
-      "bytes": 1658652,
-      "positions": 182013,
-      "rank_min": 205914112,
-      "rank_max": 37349031935,
+      "file": "generation-6ed60ffb2f3e/39-part-001.mini",
+      "bytes": 1930296,
+      "positions": 215265,
+      "rank_min": 194838528,
+      "rank_max": 37349097471,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "9d65ed4f7a6874dcd9fb2b93c13b4556683cb4249fe059829033fa30dc8f9832"
+      "sha256": "efb7d4bd732305ec7d7d2f85cfd35e79852e371a19d19301a8fd7027b04b947b"
     },
     {
       "stone": 38,
-      "file": "generation-f3e57107a05f/38-part-001.mini",
-      "bytes": 2064233,
-      "positions": 229823,
-      "rank_min": 92798976,
+      "file": "generation-6ed60ffb2f3e/38-part-001.mini",
+      "bytes": 2471370,
+      "positions": 287463,
+      "rank_min": 129564672,
       "rank_max": 29131800575,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "22985b72ff84d2bc10c264c87c8c5fd99cc995136ce19dfb442c5789f7d8bc6a"
+      "sha256": "34346ac4e2b4cd16fdf49bd9f48f3cca4b3a1a6c829673b9abd1a8f5aff6c2f9"
     },
     {
       "stone": 37,
-      "file": "generation-f3e57107a05f/37-part-001.mini",
-      "bytes": 2257328,
-      "positions": 250396,
-      "rank_min": 42729472,
+      "file": "generation-6ed60ffb2f3e/37-part-001.mini",
+      "bytes": 2848151,
+      "positions": 342345,
+      "rank_min": 34865152,
       "rank_max": 22591569919,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "4e1d5c3535a7b4efc5f70a585818bce1f49ad02f57f960c240623beba03ea1ef"
+      "sha256": "47756841b6eaa3de58478983ebde6edebf5f0dcc8972c04f4a8122b41c0ed93a"
     },
     {
       "stone": 36,
-      "file": "generation-f3e57107a05f/36-part-001.mini",
-      "bytes": 2296898,
-      "positions": 255810,
-      "rank_min": 34996224,
-      "rank_max": 17414225919,
+      "file": "generation-6ed60ffb2f3e/36-part-001.mini",
+      "bytes": 3129563,
+      "positions": 394229,
+      "rank_min": 15335424,
+      "rank_max": 17415274495,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "74a4efd6e5f6dbeec765bfbad897261c125ac36623b087d3c01818e590b8d77b"
+      "sha256": "bd266515bb94ba11a05a1f6d2f84374c2b68b416e8e57e85d265f5bf7bc93f8c"
     },
     {
       "stone": 35,
-      "file": "generation-f3e57107a05f/35-part-001.mini",
-      "bytes": 2287187,
-      "positions": 261085,
-      "rank_min": 21692416,
-      "rank_max": 13338017791,
+      "file": "generation-6ed60ffb2f3e/35-part-001.mini",
+      "bytes": 3287407,
+      "positions": 436972,
+      "rank_min": 9043968,
+      "rank_max": 13339721727,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "d2bddc61f03c1ddbcd8827d41a928fed3ce90b4b340af578a10a9ba39e88e357"
+      "sha256": "68b2c050a40abb0740528f46063cfa7386d54e21a1106842d3c9fb280b8295cf"
     },
     {
       "stone": 34,
-      "file": "generation-f3e57107a05f/34-part-001.mini",
-      "bytes": 2248037,
-      "positions": 271091,
-      "rank_min": 13238272,
-      "rank_max": 10149167103,
+      "file": "generation-6ed60ffb2f3e/34-part-001.mini",
+      "bytes": 3226144,
+      "positions": 455799,
+      "rank_min": 4653056,
+      "rank_max": 10149625855,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "9227e3f6867b4e8ee356e08de24225e38241434bd7b5c17beea2e4d698031208"
+      "sha256": "8c433e5b505975ba7bcc2ad759c51d06ac52c2ab2df9139feafeccebf8d7b4c6"
     },
     {
       "stone": 33,
-      "file": "generation-f3e57107a05f/33-part-001.mini",
-      "bytes": 2206197,
-      "positions": 289393,
-      "rank_min": 4653056,
+      "file": "generation-6ed60ffb2f3e/33-part-001.mini",
+      "bytes": 3098457,
+      "positions": 471549,
+      "rank_min": 3145728,
       "rank_max": 7668105215,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "b85e5630f15be6111d3c0e92ab371652107e9ce59a33d00d6ea67ae114a912b0"
+      "sha256": "232587d8363a597d56a6bd2842b7975b926c0626f642cc6b33c09e39beb3480f"
     },
     {
       "stone": 32,
-      "file": "generation-f3e57107a05f/32-part-001.mini",
-      "bytes": 2125278,
-      "positions": 304756,
-      "rank_min": 2621440,
-      "rank_max": 5751308287,
+      "file": "generation-6ed60ffb2f3e/32-part-001.mini",
+      "bytes": 2964224,
+      "positions": 496101,
+      "rank_min": 786432,
+      "rank_max": 5751373823,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "8ce51b513ca0b74ad5fdd843ad1574e131d89b26ee9239bb5e9f49fe7e1ad4f9"
+      "sha256": "8175d22c736e7b156d73226276f03ba5eb35adbb34242a0dc0dfabc48ccafa3a"
     },
     {
       "stone": 31,
-      "file": "generation-f3e57107a05f/31-part-001.mini",
-      "bytes": 1963841,
-      "positions": 305360,
+      "file": "generation-6ed60ffb2f3e/31-part-001.mini",
+      "bytes": 2775012,
+      "positions": 510542,
       "rank_min": 786432,
       "rank_max": 4279959551,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "3959c870e8670cbe4ed788f04f52fa2643b3edee70fb6ca57a2935aefb45cc2f"
+      "sha256": "c0672d1de63f8e01726ce85c9b639ae5df3861eaa6737fb9dfa7928f476faeef"
     },
     {
       "stone": 30,
-      "file": "generation-f3e57107a05f/30-part-001.mini",
-      "bytes": 1772202,
-      "positions": 297001,
+      "file": "generation-6ed60ffb2f3e/30-part-001.mini",
+      "bytes": 2542119,
+      "positions": 510319,
       "rank_min": 131072,
       "rank_max": 3159097343,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "8e5cfb9a01fbd5259cd0b533a9bdade8f1daa7f63206b2d289242c8807cfe5aa"
+      "sha256": "331e5481e84d5a139f4d4bbe63ae9317a91a34dcfbe5bbf79ac58b665416c032"
     },
     {
       "stone": 29,
-      "file": "generation-f3e57107a05f/29-part-001.mini",
-      "bytes": 1558966,
-      "positions": 283612,
-      "rank_min": 0,
+      "file": "generation-6ed60ffb2f3e/29-part-001.mini",
+      "bytes": 2291067,
+      "positions": 500684,
+      "rank_min": 65536,
       "rank_max": 2311520255,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "e2728bd0d1aeb13e331ab5b0005b65fe544d07c2f12c8e907646bb747958d9f4"
+      "sha256": "6469f5e59846cdefaaa21ce3984b40d546fad18620500b7c5dd0389c6e227521"
     },
     {
       "stone": 28,
-      "file": "generation-f3e57107a05f/28-part-001.mini",
-      "bytes": 1355176,
-      "positions": 267394,
+      "file": "generation-6ed60ffb2f3e/28-part-001.mini",
+      "bytes": 2041462,
+      "positions": 482212,
       "rank_min": 0,
-      "rank_max": 1675689983,
+      "rank_max": 1675821055,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "e1444ac0558a2c5d546c8490bb7d2370aee5af077084ab52bc4357336d41f2d9"
+      "sha256": "05c3d1c7f6bd1513dfa0a0e0ddbe82a8d6b09917bbaf8817cb29d6471c2c1db6"
     },
     {
       "stone": 27,
-      "file": "generation-f3e57107a05f/27-part-001.mini",
-      "bytes": 1188846,
-      "positions": 257367,
+      "file": "generation-6ed60ffb2f3e/27-part-001.mini",
+      "bytes": 1826617,
+      "positions": 463637,
       "rank_min": 0,
       "rank_max": 1203109887,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "e32d40b003de119479ef0b37d355092e5c1d1c5566db95282040e836286666d4"
+      "sha256": "d8420925636ef08ab6bd26613b430bb1f338d11d8599a84614313a320a14f202"
     },
     {
       "stone": 26,
-      "file": "generation-f3e57107a05f/26-part-001.mini",
-      "bytes": 1081910,
-      "positions": 258450,
+      "file": "generation-6ed60ffb2f3e/26-part-001.mini",
+      "bytes": 1679646,
+      "positions": 455679,
       "rank_min": 0,
       "rank_max": 854851583,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "907aa5171b768600a95e6e58a94f6d19a025267c3766200b6d5930ed70cf8e94"
+      "sha256": "9ecdda9a6b5ce2312cb898bed374202efa2eb4933e24e4f671d8b2e5b1c6e749"
     },
     {
       "stone": 25,
-      "file": "generation-f3e57107a05f/25-part-001.mini",
-      "bytes": 988697,
-      "positions": 256555,
+      "file": "generation-6ed60ffb2f3e/25-part-001.mini",
+      "bytes": 1569669,
+      "positions": 449724,
       "rank_min": 0,
       "rank_max": 600702975,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "774dc26e0d9e41ac78b490599b8cccfa55471eba5d7479d30c53f81788571cd1"
+      "sha256": "90fff888f50a58270aa0a4f12e8fa7fe3d6fabe8f98a4e3175749fe79e5d3f63"
     },
     {
       "stone": 24,
-      "file": "generation-f3e57107a05f/24-part-001.mini",
-      "bytes": 910820,
-      "positions": 252580,
+      "file": "generation-6ed60ffb2f3e/24-part-001.mini",
+      "bytes": 1476600,
+      "positions": 441053,
       "rank_min": 0,
       "rank_max": 417136639,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "021e9abc77cbf23d6d1aa069b68baa016dd23f0c17f3339341f3fd0f9112bfe0"
+      "sha256": "fbc1507b3f69128003e4488aaa2e1a7e8012f61cb794d6831b89c0f4ba748898"
     },
     {
       "stone": 23,
-      "file": "generation-f3e57107a05f/23-part-001.mini",
-      "bytes": 854396,
-      "positions": 249668,
+      "file": "generation-6ed60ffb2f3e/23-part-001.mini",
+      "bytes": 1428893,
+      "positions": 441159,
       "rank_min": 0,
       "rank_max": 285999103,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "6eaf44c4d5bb772278903702a53365c0720ea547c7630cb1726c47b69822184b"
+      "sha256": "a07597928cac5b31cef65aca8a4765a5a4bbab01481b84c2a66ef867bdf3f835"
     },
     {
       "stone": 22,
-      "file": "generation-f3e57107a05f/22-part-001.mini",
-      "bytes": 812604,
-      "positions": 247018,
+      "file": "generation-6ed60ffb2f3e/22-part-001.mini",
+      "bytes": 1417272,
+      "positions": 448574,
       "rank_min": 0,
       "rank_max": 193462271,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "53a3ca5f25352e96ff4e4fe1718a6d89c712066e5c54be5e98b7b484dece127d"
+      "sha256": "fab40e361ef558d110104de095c51e97f08456a2519cd96de0c435d16e359eed"
     },
     {
       "stone": 21,
-      "file": "generation-f3e57107a05f/21-part-001.mini",
-      "bytes": 777444,
-      "positions": 243170,
+      "file": "generation-6ed60ffb2f3e/21-part-001.mini",
+      "bytes": 1407958,
+      "positions": 454148,
       "rank_min": 0,
       "rank_max": 128974847,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "814633f9287f5f324927691e02ee653c27ec939d1bf3e9597771abd3e99da5b2"
+      "sha256": "10a82e3275fc35211036aabecc0cd13f74518d3dcde89c5ea66e932ac6fc6ebc"
     },
     {
       "stone": 20,
-      "file": "generation-f3e57107a05f/20-part-001.mini",
-      "bytes": 737669,
-      "positions": 235320,
+      "file": "generation-6ed60ffb2f3e/20-part-001.mini",
+      "bytes": 1405975,
+      "positions": 459280,
       "rank_min": 0,
       "rank_max": 84672511,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "dd5673d14b812d049f065aa4cec72a0667ba2cc2dd8da01304720b04da1a47f5"
+      "sha256": "aa5e5aaf8cee9e97515401974c026faad487d90ccdfdfd7183f7248780f95111"
     },
     {
       "stone": 19,
-      "file": "generation-f3e57107a05f/19-part-001.mini",
-      "bytes": 707723,
-      "positions": 229010,
+      "file": "generation-6ed60ffb2f3e/19-part-001.mini",
+      "bytes": 1436481,
+      "positions": 473064,
       "rank_min": 0,
       "rank_max": 54591487,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "5bac0ef1aadf595889c8c9d5fa53d4325f0dec36742a8fd02369e07a77312b60"
+      "sha256": "2502ce9f7b3cca7df746b83cba5fe7308970a5f9fb982c272d45b7642dffdb5a"
     },
     {
       "stone": 18,
-      "file": "generation-f3e57107a05f/18-part-001.mini",
-      "bytes": 693056,
-      "positions": 226561,
+      "file": "generation-6ed60ffb2f3e/18-part-001.mini",
+      "bytes": 1484864,
+      "positions": 491013,
       "rank_min": 0,
       "rank_max": 34603007,
       "coverage": "saved-games-tiered-neighborhood-plus-endpoint-moves",
-      "sha256": "7afa4634a2e038d98ff5b89d91cc6d1eef7103f113e25c33e27514ae4d26c651"
+      "sha256": "050e87beb49294c391dd5ad7731f3418e90d76553f2491c81bb5a282585e6282"
     }
   ],
-  "positions": 5818663,
-  "bytes": 34173690,
+  "positions": 9860856,
+  "bytes": 49528278,
   "by_stone": [
     {
       "stone": 43,
-      "positions": 1095,
-      "bytes": 14335
+      "positions": 1154,
+      "bytes": 15328
     },
     {
       "stone": 42,
-      "positions": 9482,
-      "bytes": 113394
+      "positions": 9835,
+      "bytes": 119469
     },
     {
       "stone": 41,
-      "positions": 43588,
-      "bytes": 449356
+      "positions": 45323,
+      "bytes": 477768
     },
     {
       "stone": 40,
-      "positions": 111065,
-      "bytes": 1049445
+      "positions": 123733,
+      "bytes": 1176466
     },
     {
       "stone": 39,
-      "positions": 182013,
-      "bytes": 1658652
+      "positions": 215265,
+      "bytes": 1930296
     },
     {
       "stone": 38,
-      "positions": 229823,
-      "bytes": 2064233
+      "positions": 287463,
+      "bytes": 2471370
     },
     {
       "stone": 37,
-      "positions": 250396,
-      "bytes": 2257328
+      "positions": 342345,
+      "bytes": 2848151
     },
     {
       "stone": 36,
-      "positions": 255810,
-      "bytes": 2296898
+      "positions": 394229,
+      "bytes": 3129563
     },
     {
       "stone": 35,
-      "positions": 261085,
-      "bytes": 2287187
+      "positions": 436972,
+      "bytes": 3287407
     },
     {
       "stone": 34,
-      "positions": 271091,
-      "bytes": 2248037
+      "positions": 455799,
+      "bytes": 3226144
     },
     {
       "stone": 33,
-      "positions": 289393,
-      "bytes": 2206197
+      "positions": 471549,
+      "bytes": 3098457
     },
     {
       "stone": 32,
-      "positions": 304756,
-      "bytes": 2125278
+      "positions": 496101,
+      "bytes": 2964224
     },
     {
       "stone": 31,
-      "positions": 305360,
-      "bytes": 1963841
+      "positions": 510542,
+      "bytes": 2775012
     },
     {
       "stone": 30,
-      "positions": 297001,
-      "bytes": 1772202
+      "positions": 510319,
+      "bytes": 2542119
     },
     {
       "stone": 29,
-      "positions": 283612,
-      "bytes": 1558966
+      "positions": 500684,
+      "bytes": 2291067
     },
     {
       "stone": 28,
-      "positions": 267394,
-      "bytes": 1355176
+      "positions": 482212,
+      "bytes": 2041462
     },
     {
       "stone": 27,
-      "positions": 257367,
-      "bytes": 1188846
+      "positions": 463637,
+      "bytes": 1826617
     },
     {
       "stone": 26,
-      "positions": 258450,
-      "bytes": 1081910
+      "positions": 455679,
+      "bytes": 1679646
     },
     {
       "stone": 25,
-      "positions": 256555,
-      "bytes": 988697
+      "positions": 449724,
+      "bytes": 1569669
     },
     {
       "stone": 24,
-      "positions": 252580,
-      "bytes": 910820
+      "positions": 441053,
+      "bytes": 1476600
     },
     {
       "stone": 23,
-      "positions": 249668,
-      "bytes": 854396
+      "positions": 441159,
+      "bytes": 1428893
     },
     {
       "stone": 22,
-      "positions": 247018,
-      "bytes": 812604
+      "positions": 448574,
+      "bytes": 1417272
     },
     {
       "stone": 21,
-      "positions": 243170,
-      "bytes": 777444
+      "positions": 454148,
+      "bytes": 1407958
     },
     {
       "stone": 20,
-      "positions": 235320,
-      "bytes": 737669
+      "positions": 459280,
+      "bytes": 1405975
     },
     {
       "stone": 19,
-      "positions": 229010,
-      "bytes": 707723
+      "positions": 473064,
+      "bytes": 1436481
     },
     {
       "stone": 18,
-      "positions": 226561,
-      "bytes": 693056
+      "positions": 491013,
+      "bytes": 1484864
     }
   ],
   "collection": "saved-game-neighborhoods",
   "settings": {
-    "optimal_depth": 8,
-    "near_depth": 6,
+    "optimal_depth": 12,
+    "near_depth": 8,
     "any_depth": 4,
-    "stone_loss": 3
+    "stone_loss": 2
   },
-  "distinct_games": 141,
-  "source_records": 141,
-  "seed_positions": 2448,
+  "distinct_games": 170,
+  "source_records": 170,
+  "seed_positions": 2896,
   "additive_collection": true,
   "depth_meaning": "moves played plus all legal move scores at each endpoint"
 }
