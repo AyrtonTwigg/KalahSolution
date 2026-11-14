@@ -69,6 +69,7 @@ h1 { font:normal clamp(24px,3vw,36px) var(--serif); letter-spacing:-.8px; margin
 .pocket.active.player-1 .pit:hover { background:#24745d; border-color:#104634; }
 .pocket.active.player-2 .pit:hover { background:#b1573f; border-color:#783322; }
 .pocket.empty .pit { background:#efe9dc; color:#625849; border-color:#ad9e85; }
+.pocket .pit.sow-target,.store.sow-target { outline:3px solid #e7ad22; outline-offset:2px; box-shadow:0 0 0 6px #fff4b9; }
 .pit-number { font-size:11px; font-weight:700; color:#554c40; line-height:14px; }
 .score { position:relative; height:34px; flex:0 0 34px; min-height:0; border:1px solid transparent; line-height:normal; font-size:16px; font-weight:800; white-space:nowrap; color:#655c4e; font-variant-numeric:tabular-nums; display:flex; align-items:center; justify-content:center; min-width:0; border-radius:6px; }
 .score.playable { background:var(--unknown); color:white; border:1px solid #33414e; padding:0 3px; box-shadow:0 1px 2px #21383019; }
@@ -79,6 +80,9 @@ h1 { font:normal clamp(24px,3vw,36px) var(--serif); letter-spacing:-.8px; margin
 .score .compact-value { display:none; }
 .board-caption { display:flex; justify-content:space-between; gap:18px; margin:20px 7px 0; font-size:12px; color:var(--muted); line-height:1.5; }
 .legend { white-space:nowrap; }
+.board-key { display:flex; flex-direction:column; align-items:flex-end; gap:8px; flex-shrink:0; }
+.animation-setting { display:inline-flex; align-items:center; gap:7px; color:var(--ink); font-size:12px; cursor:pointer; white-space:nowrap; }
+.animation-setting input { width:17px; height:17px; margin:0; accent-color:var(--p1); cursor:pointer; }
 .star { color:#80600e; padding-right:5px; font-size:14px; }
 .history-bar { display:flex; align-items:center; justify-content:center; gap:22px; margin:30px 0 25px; }
 .history-bar button { width:36px; height:34px; padding:0; font-size:18px; }
@@ -181,6 +185,8 @@ dialog h2 { font:normal 31px var(--serif); letter-spacing:-.6px; margin:0 0 12px
   .side-heading { font-size:10px; margin-bottom:10px; }
   .bottom-heading { margin:10px 0 0; }
   .board-caption { font-size:11px; gap:12px; margin-top:18px; }
+  .board-caption { flex-direction:column; }
+  .board-key { width:100%; flex-direction:row; justify-content:space-between; align-items:center; gap:10px; }
   .legend { font-size:10px; }
   .history-bar { margin:26px 0 23px; gap:15px; }
   .explanation { font-size:11px; margin:0 14px; gap:9px; }

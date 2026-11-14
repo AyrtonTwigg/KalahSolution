@@ -19,30 +19,46 @@
     }
     return state;
   }
-  function play(state,move) {
+  function play(state,move,{trace=false}={}) {
     validate(state);
     if (!legalMoves(state).includes(move)) throw new Error('Choose a nonempty pocket on the side to move.');
     const next = {pits:state.pits.slice(),stores:state.stores.slice(),turn:state.turn};
+    const frames=[];
+    const emit=(kind,inHand,targets,note,view=next)=>{
+      if (trace) frames.push({kind,inHand,targets,note,state:{pits:view.pits.slice(),stores:view.stores.slice(),turn:state.turn}});
+    };
     let stones=next.pits[move], cursor=move, capture=0;
     next.pits[move]=0;
-    while (stones--) {
+    emit('pickup',stones,[{player:state.turn,pit:move}],`Player ${state.turn+1} picked up ${stones} stones.`);
+    while (stones>0) {
       cursor=(cursor+1)%13;
       if (cursor===6) next.stores[next.turn]++;
       else next.pits[cursor<6?cursor:cursor-1]++;
+      stones--;
+      const target=cursor===6?{player:state.turn,store:true}:{player:cursor<6?state.turn:1-state.turn,pit:cursor<6?cursor:cursor-7};
+      emit('sow',stones,[target],`Player ${state.turn+1} sowing · ${stones} ${stones===1?'stone':'stones'} in hand.`);
     }
     const bonus=cursor===6;
     if (cursor<6 && next.pits[cursor]===1 && next.pits[11-cursor]>0) {
       capture=1+next.pits[11-cursor];
       next.stores[next.turn]+=capture;
       next.pits[cursor]=next.pits[11-cursor]=0;
+      emit('capture',0,[{player:state.turn,pit:cursor},{player:1-state.turn,pit:5-cursor},{player:state.turn,store:true}],`Capture · ${capture} stones moved to Player ${state.turn+1}'s store.`);
     }
+    const remaining=[total(next.pits.slice(0,6)),total(next.pits.slice(6))];
     if (!bonus) {
       next.pits=next.pits.slice(6).concat(next.pits.slice(0,6));
       next.turn=1-next.turn;
     }
     sweep(next);
     validate(next);
-    return {state:next,bonus:bonus&&!finished(next),capture,move,player:state.turn};
+    if (finished(next)&&remaining.some(Boolean)) {
+      const targets=remaining.flatMap((n,i)=>n?[{player:i===0?state.turn:1-state.turn,store:true}]:[]);
+      emit('sweep',0,targets,'Game over · remaining stones collected into the stores.',next);
+    }
+    const edge={state:next,bonus:bonus&&!finished(next),capture,move,player:state.turn};
+    if (trace) edge.frames=frames;
+    return edge;
   }
   function playerPits(state,player) {
     return state.pits.slice(player===state.turn?0:6,player===state.turn?6:12);

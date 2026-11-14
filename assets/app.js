@@ -5,9 +5,11 @@
   const storageKey='kalah-explorer-v1';
   let history=[{state:G.initial(),note:'Choose a pocket on the active side.'}],cursor=0,flipped=false;
   let scores=null,loading=true,error=null,requestId=0,worker=null;
+  let animateSowing=true,animation=null,animationTimer=null;
   const current=()=>history[cursor].state;
   try {
     const saved=JSON.parse(localStorage.getItem(storageKey));
+    if (saved?.version===1&&typeof saved.animateSowing==='boolean') animateSowing=saved.animateSowing;
     if (saved&&saved.version===1&&Array.isArray(saved.history)&&saved.history.length&&saved.history.length<=1000&&
         Number.isInteger(saved.cursor)&&saved.cursor>=0&&saved.cursor<saved.history.length) {
       saved.history.forEach(h=>{G.validate(h.state);if(typeof h.note!=='string')throw Error();});
@@ -15,7 +17,7 @@
     }
   } catch (_) { /* Storage is optional; a fresh board always works. */ }
   function save() {
-    try {localStorage.setItem(storageKey,JSON.stringify({version:1,history,cursor,flipped}));} catch (_) {}
+    try {localStorage.setItem(storageKey,JSON.stringify({version:1,history,cursor,flipped,animateSowing}));} catch (_) {}
   }
   function setupWorker() {
     if (location.protocol==='file:') {
@@ -67,36 +69,39 @@
     if (best) {const star=document.createElement('span');star.className='score-star';star.textContent='★';label.append(star);}
     return label;
   }
-  function makeStore(element,player) {
+  function makeStore(element,player,state) {
     element.className=`store store-${element.id==='left-store'?'left':'right'} player-${player+1}`;
     element.replaceChildren();
     const name=document.createElement('span');name.className='store-player';name.dataset.short=`P${player+1}`;name.textContent=`Player ${player+1}`;
     const subtitle=document.createElement('span');subtitle.className='store-name';subtitle.textContent='STORE';
-    const value=document.createElement('strong');value.textContent=current().stores[player];
+    element.dataset.player=player;
+    const value=document.createElement('strong');value.textContent=state.stores[player];
     const unit=document.createElement('span');unit.className='stone-word';unit.textContent='stones';
-    element.append(name,subtitle,value,unit);element.setAttribute('aria-label',`Player ${player+1} store: ${current().stores[player]} stones`);
+    element.append(name,subtitle,value,unit);element.setAttribute('aria-label',`Player ${player+1} store: ${state.stores[player]} stones`);
   }
   function render() {
-    const state=current(),over=G.finished(state),bottom=flipped?1:0,top=1-bottom;
-    $('remaining-count').textContent=G.total(state.pits);
-    $('turn-heading').replaceChildren(document.createTextNode(over?'Game complete':`Player ${state.turn+1} to move`));
+    const frame=animation?.frame,state=frame?.state??current(),over=!animation&&G.finished(state),bottom=flipped?1:0,top=1-bottom;
+    $('remaining-count').textContent=G.total(state.pits)+(frame?.inHand??0);
+    $('turn-heading').replaceChildren(document.createTextNode(over?'Game complete':`Player ${state.turn+1} ${animation?'sowing':'to move'}`));
     if (!over) {const dot=document.createElement('span');dot.className='turn-dot';$('turn-heading').append(dot);}
     document.querySelector('.position-heading').classList.toggle('player-2',state.turn===1);
     const total=scores?.exactTotal??null;
     let verdict=loading?'Reading solutions…':error?'Scores unavailable':total===null?'Exact result not in this collection':total===24?'Draw · 24–24':`Player ${(total>24?state.turn:1-state.turn)+1} wins · ${Math.max(total,48-total)}–${Math.min(total,48-total)}`;
     if (total===null&&!loading&&!error&&Math.max(...state.stores)>=25) verdict=`Player ${state.stores[0]>=25?1:2} has secured a win`;
+    if (animation) verdict=frame.kind==='capture'?`Captured ${animation.edge.capture} stones`:frame.kind==='sweep'?'Collecting remaining stones':`${frame.inHand} ${frame.inHand===1?'stone':'stones'} in hand`;
+    document.querySelector('.verdict .eyebrow').textContent=animation?'MOVE IN PROGRESS':'PERFECT PLAY';
     $('position-score').textContent=verdict;
     for (const [id,player] of [['top-heading',top],['bottom-heading',bottom]]) {
       const el=$(id);el.className=`side-heading ${id==='bottom-heading'?'bottom-heading ':''}player-${player+1}`;
       el.textContent=`PLAYER ${player+1}`;
-      if (player===state.turn&&!over) {const tag=document.createElement('span');tag.className='active-tag';tag.textContent='YOUR MOVE';el.append(tag);}
+      if (player===state.turn&&!over) {const tag=document.createElement('span');tag.className='active-tag';tag.textContent=animation?'SOWING':'YOUR MOVE';el.append(tag);}
     }
-    makeStore($('left-store'),top);makeStore($('right-store'),bottom);
+    makeStore($('left-store'),top,state);makeStore($('right-store'),bottom,state);
     const grid=$('pocket-grid');grid.replaceChildren();
     for (const [player,isTop] of [[top,true],[bottom,false]]) {
       const pits=G.playerPits(state,player);
       for (let col=0;col<6;col++) {
-        const move=isTop?5-col:col,n=pits[move],active=player===state.turn&&!over;
+        const move=isTop?5-col:col,n=pits[move],active=player===state.turn&&!over&&!animation;
         const cell=document.createElement('div');cell.className=`pocket player-${player+1}${active&&n?' active':''}${!n?' empty':''}`;
         const num=document.createElement('span');num.className='pit-number';num.textContent=move+1;num.setAttribute('aria-hidden','true');
         const button=document.createElement('button');button.className='pit';button.textContent=n;button.disabled=!active||!n;
@@ -108,25 +113,60 @@
         cell.append(...(isTop?[label,button,num]:[num,button,label]));grid.append(cell);
       }
     }
-    $('move-note').textContent=over?'All remaining stones have been collected.':history[cursor].note;
+    $('board').setAttribute('aria-busy',String(Boolean(animation)));
+    $('move-note').setAttribute('aria-live',animation?'off':'polite');
+    $('move-note').textContent=frame?.note??(over?'All remaining stones have been collected.':history[cursor].note);
+    if (frame) for (const target of frame.targets) {
+      const selector=target.store?`.store[data-player="${target.player}"]`:`.pit[data-player="${target.player}"][data-pit="${target.pit+1}"]`;
+      document.querySelector(selector)?.classList.add('sow-target');
+    }
     $('previous').disabled=cursor===0;$('next').disabled=cursor===history.length-1;
     $('history-position').textContent=cursor===0?'Starting position':`Move ${cursor} of ${history.length-1}`;
-    $('data-status').textContent=error|| (loading?'Reading saved solutions…':'Saved solutions · Loaded only as needed');
+    $('data-status').textContent=animation?'Sowing stones…':error|| (loading?'Reading saved solutions…':'Saved solutions · Loaded only as needed');
     document.querySelector('.data-status').classList.toggle('error',Boolean(error));$('retry').hidden=!error||location.protocol==='file:';
     $('coverage-note').textContent='A question mark means this collection does not have the score.';
   }
   function play(move) {
-    if ($('edit-dialog').open||$('rules-dialog').open||!G.legalMoves(current()).includes(move)) return;
-    const edge=G.play(current(),move);
+    if (animation||$('edit-dialog').open||$('rules-dialog').open||!G.legalMoves(current()).includes(move)) return;
+    const edge=G.play(current(),move,{trace:animateSowing});
     const note=`Player ${edge.player+1} played pocket ${move+1}${edge.capture?` · Captured ${edge.capture} stones`:''}${edge.bonus?' · Extra turn':''}.`;
     history=history.slice(0,cursor+1);history.push({state:edge.state,note});cursor++;
-    save();analyze();
+    save();
+    if (animateSowing) startSowing(edge);else analyze();
   }
-  function step(amount) {cursor=Math.max(0,Math.min(history.length-1,cursor+amount));save();analyze();}
-  function newLine(state,note) {history=[{state,note}];cursor=0;save();analyze();}
+  function cancelSowing() {
+    if (animationTimer!==null) clearTimeout(animationTimer);
+    animationTimer=null;animation=null;
+  }
+  function startSowing(edge) {
+    cancelSowing();
+    const job={edge,index:0,frame:edge.frames[0]};
+    animation=job;requestId++;scores=null;loading=false;error=null;
+    const stoneSteps=edge.frames.filter(f=>f.kind==='sow').length;
+    function tick() {
+      if (animation!==job) return;
+      job.frame=edge.frames[job.index];
+      render();
+      const delay=job.frame.kind==='sow'?Math.max(55,Math.min(150,1200/stoneSteps)):job.frame.kind==='pickup'?180:350;
+      animationTimer=setTimeout(()=>{
+        if (animation!==job) return;
+        job.index++;
+        if (job.index<edge.frames.length) tick();
+        else {cancelSowing();analyze();}
+      },delay);
+    }
+    tick();
+  }
+  function step(amount) {cancelSowing();cursor=Math.max(0,Math.min(history.length-1,cursor+amount));save();analyze();}
+  function newLine(state,note) {cancelSowing();history=[{state,note}];cursor=0;save();analyze();}
   $('new-game').onclick=()=>newLine(G.initial(),'Choose a pocket on the active side.');
   $('flip').onclick=()=>{flipped=!flipped;save();render();};
   $('previous').onclick=()=>step(-1);$('next').onclick=()=>step(1);
+  $('animate-sowing').checked=animateSowing;
+  $('animate-sowing').onchange=()=>{
+    animateSowing=$('animate-sowing').checked;save();
+    if (!animateSowing&&animation) {cancelSowing();analyze();}
+  };
   $('retry').onclick=()=>{if(worker){worker.terminate();worker=null;}analyze();};
   $('rules').onclick=()=>$('rules-dialog').showModal();
   for (const dialog of [$('rules-dialog'),$('edit-dialog')]) dialog.addEventListener('click',event=>{
@@ -139,6 +179,7 @@
     $('edit-total').textContent=valid?`${sum} / 48 stones`:'Whole numbers only';$('edit-total').classList.toggle('invalid',!valid||sum!==48);
   }
   $('edit').onclick=()=>{
+    if (animation) {cancelSowing();analyze();}
     const fields=$('edit-fields');fields.replaceChildren();$('edit-error').textContent='';$('edit-turn').value=current().turn;
     for (const player of [0,1]) {
       const section=document.createElement('div');section.className='edit-row';
