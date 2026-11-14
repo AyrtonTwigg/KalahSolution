@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f6f2">
+  <meta name="description" content="Explore Kalah, one move at a time. Play through positions and see exact perfect-play scores from a collection of solved positions.">
+  <title>Kalah — position explorer</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/game.js" defer></script>
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Kalah explorer home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="4" width="30" height="24" rx="10" fill="none" stroke="currentColor" stroke-width="1.5"/><g fill="currentColor"><circle cx="10" cy="12" r="2"/><circle cx="16" cy="12" r="2"/><circle cx="22" cy="12" r="2"/><circle cx="10" cy="20" r="2"/><circle cx="16" cy="20" r="2"/><circle cx="22" cy="20" r="2"/></g></svg><span>Kalah<small>POSITION EXPLORER</small></span></a>
+    <nav class="toolbar" aria-label="Board controls">
+      <button id="new-game" class="primary">New game</button>
+      <button id="flip" title="Switch which player is at the bottom"><span aria-hidden="true">⇅</span> Flip board</button>
+      <button id="edit">Edit</button>
+      <button id="rules" class="quiet">Rules <span class="question" aria-hidden="true">?</span></button>
+    </nav>
+  </header>
+  <main>
+    <div class="position-heading">
+      <div><p class="eyebrow">THE POSITION</p><h1 id="turn-heading">Player 1 to move<span class="turn-dot"></span></h1><p class="board-count" aria-live="polite"><strong id="remaining-count">48</strong> stones on the board</p></div>
+      <div class="verdict"><span class="eyebrow">PERFECT PLAY</span><p id="position-score" aria-live="polite">Reading solutions…</p></div>
+    </div>
+    <section class="board-section" aria-label="Kalah board">
+      <div class="side-heading" id="top-heading"></div>
+      <div class="board" id="board">
+        <div class="store store-left" id="left-store"></div>
+        <div class="pocket-grid" id="pocket-grid"></div>
+        <div class="store store-right" id="right-store"></div>
+      </div>
+      <div class="side-heading bottom-heading" id="bottom-heading"></div>
+      <div class="board-caption"><span id="move-note" aria-live="polite">Choose a pocket on the active side.</span><span class="legend"><span class="star">★</span> Highest final score</span></div>
+    </section>
+    <div class="history-bar"><button id="previous" aria-label="Previous position" title="Previous position (left arrow)">←</button><span id="history-position">Starting position</span><button id="next" aria-label="Next position" title="Next position (right arrow)">→</button></div>
+    <aside class="explanation"><span class="small-dot" aria-hidden="true"></span><p>Move values show the mover’s <strong>final stone total</strong> with perfect play from both sides.<br><span id="coverage-note">A question mark means this collection does not have the score.</span></p></aside>
+    <div class="data-status" role="status"><span id="data-status">Loading saved solutions…</span><button id="retry" hidden>Try again</button></div>
+    <noscript>This board needs JavaScript to play moves and read the saved solutions.</noscript>
+  </main>
+  <footer><span>Six pockets. Forty-eight stones.</span></footer>
+  <dialog id="rules-dialog" aria-labelledby="rules-title">
+    <form method="dialog" class="dialog-close"><button aria-label="Close rules">×</button></form>
+    <p class="eyebrow">HOW TO PLAY</p><h2 id="rules-title">The rules of Kalah</h2>
+    <p class="dialog-intro">Two players. Six pockets each. Collect more stones in your store than your opponent.</p>
+    <ol class="rules-list">
+      <li><strong>Set up.</strong> Each of the twelve small pockets starts with four stones. The two large stores start empty. Player 1 moves first. Each player owns one row and its store to the right when viewed from that player’s side.</li>
+      <li><strong>Sow the stones.</strong> On your turn, choose any nonempty pocket on your side. Pick up all its stones, then place one in each next pocket, counterclockwise. Include your own store and skip your opponent’s store. Keep going around the board if needed, including your starting pocket on a later lap. Stones already in a store are never played again.</li>
+      <li><strong>Take an extra move.</strong> If your last stone lands in your own store, move again. Extra turns can continue as long as you keep finishing in your store, unless the game has ended.</li>
+      <li><strong>Capture.</strong> If your last stone lands in an empty pocket on your own side, and the pocket directly opposite contains stones, put that last stone and all stones opposite into your store. If the opposite pocket is empty, there is no capture. Landing on the opponent’s side never captures.</li>
+      <li><strong>Finish the game.</strong> As soon as either player’s six pockets are all empty, the game ends. The other player puts all stones remaining on their own side into their own store. This happens even if the last move would otherwise give an extra turn.</li>
+      <li><strong>Count the stores.</strong> More than 24 stones wins; 24–24 is a draw. Having 25 stones already guarantees a win, but you may keep exploring to see the exact final total.</li>
+    </ol>
+    <div class="rule-note"><strong>Reading the board.</strong> Playable pockets belong to the player whose turn it is. Pocket 1 is farthest from that player’s store; pocket 6 is nearest. A score such as “Win · 28” means the mover can finish with 28 stones against perfect play. ★ marks a proven maximum-stone move, including ties. “?” means unknown, not a loss. Flip changes only the view. Edit starts a new line from a board totaling 48 stones.</div>
+  </dialog>
+  <dialog id="edit-dialog" aria-labelledby="edit-title">
+    <button class="close-edit" id="close-edit" aria-label="Cancel editing">×</button>
+    <p class="eyebrow">SET UP A POSITION</p><h2 id="edit-title">Make the board yours.</h2>
+    <p class="dialog-intro">Enter the stones in each pocket and store. Applying starts a new line.</p>
+    <form id="edit-form" novalidate>
+      <div id="edit-fields"></div>
+      <div class="edit-bottom"><label>Player to move <select id="edit-turn"><option value="0">Player 1</option><option value="1">Player 2</option></select></label><span id="edit-total" aria-live="polite"></span></div>
+      <p id="edit-error" class="form-error" role="alert"></p>
+      <div class="dialog-actions"><button type="button" id="cancel-edit">Cancel</button><button type="submit" class="primary">Apply position</button></div>
+    </form>
+  </dialog>
+</body>
+</html>
