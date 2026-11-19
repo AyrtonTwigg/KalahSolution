@@ -6,14 +6,15 @@
   <meta name="theme-color" content="#f7f6f2">
   <meta name="description" content="Explore Kalah, one move at a time. Play through positions and see exact perfect-play scores from a collection of solved positions.">
   <title>Kalah — position explorer</title>
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/mancala_icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/styles.css">
   <script src="assets/game.js" defer></script>
+  <script src="assets/distance.js" defer></script>
   <script src="assets/app.js" defer></script>
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="./" aria-label="Kalah explorer home"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="4" width="30" height="24" rx="10" fill="none" stroke="currentColor" stroke-width="1.5"/><g fill="currentColor"><circle cx="10" cy="12" r="2"/><circle cx="16" cy="12" r="2"/><circle cx="22" cy="12" r="2"/><circle cx="10" cy="20" r="2"/><circle cx="16" cy="20" r="2"/><circle cx="22" cy="20" r="2"/></g></svg><span>Kalah<small>POSITION EXPLORER</small></span></a>
+    <a class="brand" href="./" aria-label="Kalah explorer home"><img class="brand-icon" src="assets/mancala_icon.svg" alt="" width="448" height="176"><span>Kalah<small>POSITION EXPLORER</small></span></a>
     <nav class="toolbar" aria-label="Board controls">
       <button id="new-game" class="primary">New game</button>
       <button id="flip" title="Switch which player is at the bottom"><span aria-hidden="true">⇅</span> Flip board</button>
@@ -34,10 +35,10 @@
         <div class="store store-right" id="right-store"></div>
       </div>
       <div class="side-heading bottom-heading" id="bottom-heading"></div>
-      <div class="board-caption"><span id="move-note" aria-live="polite">Choose a pocket on the active side.</span><span class="board-key"><span class="legend"><span class="star">★</span> Highest final score</span><label class="animation-setting"><input id="animate-sowing" type="checkbox" checked> Animate sowing</label></span></div>
+      <div class="board-caption"><span id="move-note" aria-live="polite">Choose a pocket on the active side.</span><span class="board-key"><span class="legend"><span class="star">★</span> <span id="metric-legend">Highest final score</span></span><label class="metric-setting">Show <select id="evaluation-metric"><option value="stones">Final stones first</option><option value="distance">Distance first</option></select></label><label class="animation-setting"><input id="animate-sowing" type="checkbox" checked> Animate sowing</label></span></div>
     </section>
     <div class="history-bar"><button id="previous" aria-label="Previous position" title="Previous position (left arrow)">←</button><span id="history-position">Starting position</span><button id="next" aria-label="Next position" title="Next position (right arrow)">→</button></div>
-    <aside class="explanation"><span class="small-dot" aria-hidden="true"></span><p>Move values show the mover’s <strong>final stone total</strong> with perfect play from both sides.<br><span id="coverage-note">A question mark means this collection does not have the score.</span></p></aside>
+    <aside class="explanation"><span class="small-dot" aria-hidden="true"></span><p>Move values show the mover’s result with perfect play from both sides.<br> A question mark means neither database has a result for that move.</p></aside>
     <div class="data-status" role="status"><span id="data-status">Loading saved solutions…</span><button id="retry" hidden>Try again</button></div>
     <noscript>This board needs JavaScript to play moves and read the saved solutions.</noscript>
   </main>
@@ -54,7 +55,7 @@
       <li><strong>Finish the game.</strong> As soon as either player’s six pockets are all empty, the game ends. The other player puts all stones remaining on their own side into their own store. This happens even if the last move would otherwise give an extra turn.</li>
       <li><strong>Count the stores.</strong> More than 24 stones wins; 24–24 is a draw. Having 25 stones already guarantees a win, but you may keep exploring to see the exact final total.</li>
     </ol>
-    <div class="rule-note"><strong>Reading the board.</strong> Playable pockets belong to the player whose turn it is. Pocket 1 is farthest from that player’s store; pocket 6 is nearest. A score such as “Win · 28” means the mover can finish with 28 stones against perfect play. ★ marks a proven maximum-stone move, including ties. “?” means unknown, not a loss. Flip changes only the view. Edit starts a new line from a board totaling 48 stones.</div>
+    <div class="rule-note"><strong>Reading the board.</strong> Playable pockets belong to the player whose turn it is. Pocket 1 is farthest from that player’s store; pocket 6 is nearest. “Win · 28 stones” means the mover can finish with 28 stones against perfect play. “Win · 5 moves” shows how many pocket selections it takes to decide the game. ★ marks a proven best move for the selected metric, including ties. Distance counts pocket selections (including extra turns) until someone reaches 25 stones or the game is swept. ≥ marks a proven minimum. When the preferred result is missing, the other result appears if available. “?” means unknown, not a loss. Flip changes only the view. Edit starts a new line from a board totaling 48 stones.</div>
   </dialog>
   <dialog id="edit-dialog" aria-labelledby="edit-title">
     <button class="close-edit" id="close-edit" aria-label="Cancel editing">×</button>

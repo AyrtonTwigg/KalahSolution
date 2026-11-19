@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="448" height="176" viewBox="0 0 448 176"
+     role="img" aria-labelledby="title description">
+  <title id="title">Mancala / Kalah board</title>
+  <desc id="description">A black-and-white, top-down board with two rows of six round pits and one long store at each end. The background outside the board is transparent.</desc>
+
+  <!-- Rounded board body. -->
+  <rect x="4" y="4" width="440" height="168" rx="42"
+        fill="#fff" stroke="#000" stroke-width="8"/>
+
+  <g fill="#fff" stroke="#000" stroke-width="6">
+    <!-- The two end stores. -->
+    <rect x="24"  y="28" width="42" height="120" rx="21"/>
+    <rect x="382" y="28" width="42" height="120" rx="21"/>
+
+    <!-- Upper row: six pits. -->
+    <circle cx="114" cy="55" r="17"/>
+    <circle cx="158" cy="55" r="17"/>
+    <circle cx="202" cy="55" r="17"/>
+    <circle cx="246" cy="55" r="17"/>
+    <circle cx="290" cy="55" r="17"/>
+    <circle cx="334" cy="55" r="17"/>
+
+    <!-- Lower row: six pits. -->
+    <circle cx="114" cy="121" r="17"/>
+    <circle cx="158" cy="121" r="17"/>
+    <circle cx="202" cy="121" r="17"/>
+    <circle cx="246" cy="121" r="17"/>
+    <circle cx="290" cy="121" r="17"/>
+    <circle cx="334" cy="121" r="17"/>
+  </g>
+</svg>

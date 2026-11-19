@@ -6,10 +6,12 @@
   let history=[{state:G.initial(),note:'Choose a pocket on the active side.'}],cursor=0,flipped=false;
   let scores=null,loading=true,error=null,requestId=0,worker=null;
   let animateSowing=true,animation=null,animationTimer=null;
+  let metric='stones';
   const current=()=>history[cursor].state;
   try {
     const saved=JSON.parse(localStorage.getItem(storageKey));
     if (saved?.version===1&&typeof saved.animateSowing==='boolean') animateSowing=saved.animateSowing;
+    if (saved?.version===1&&saved.metric==='distance') metric='distance';
     if (saved&&saved.version===1&&Array.isArray(saved.history)&&saved.history.length&&saved.history.length<=1000&&
         Number.isInteger(saved.cursor)&&saved.cursor>=0&&saved.cursor<saved.history.length) {
       saved.history.forEach(h=>{G.validate(h.state);if(typeof h.note!=='string')throw Error();});
@@ -17,7 +19,7 @@
     }
   } catch (_) { /* Storage is optional; a fresh board always works. */ }
   function save() {
-    try {localStorage.setItem(storageKey,JSON.stringify({version:1,history,cursor,flipped,animateSowing}));} catch (_) {}
+    try {localStorage.setItem(storageKey,JSON.stringify({version:1,history,cursor,flipped,animateSowing,metric}));} catch (_) {}
   }
   function setupWorker() {
     if (location.protocol==='file:') {
@@ -37,35 +39,56 @@
   }
   function analyze() {
     scores=null;error=null;loading=true;requestId++;
-    if (G.finished(current())) {
-      loading=false;scores={exactTotal:current().stores[current().turn],moves:[],optimal:[]};render();return;
+    if (G.finished(current())||metric==='distance'&&KalahDistance.terminal(current(),G)) {
+      loading=false;scores={exactTotal:G.finished(current())?current().stores[current().turn]:null,
+        distance:metric==='distance'?KalahDistance.terminal(current(),G):null,moves:[],optimal:[]};
+      render();return;
     }
     if (!worker) setupWorker();
     render();
-    if (worker) worker.postMessage({id:requestId,state:current()});
+    if (worker) worker.postMessage({id:requestId,state:current(),metric});
   }
-  function valueText(total) {return `${total>24?'Win':total===24?'Draw':'Loss'} · ${total}`;}
-  function scoreLabel(move,active,empty) {
+  function moveDisplay(move) {
+    const entry=scores?.moves.find(m=>m.move===move),total=entry?.total??null;
+    const proof=KalahDistance.preferredLabel(entry?.distance,total,metric);
+    if (proof) return {...proof,kind:'distance',best:metric==='distance'&&scores.distanceOptimal.includes(move),
+      title:proof.amount===null?proof.text:`${proof.name} in ${proof.amount} ${proof.unit}`};
+    if (total===null) return null;
+    const unit=total===1?'stone':'stones';
+    return {name:total>24?'Win':total<24?'Loss':'Draw',amount:total,unit,kind:'stones',
+      outcome:Math.sign(total-24),best:metric==='stones'&&scores.optimal.includes(move),
+      title:`Perfect play: mover finishes with ${total} ${unit}`};
+  }
+  function scoreMeasurement(amount,unit,kind) {
+    const measurement=document.createElement('span');measurement.className='score-measurement';
+    const number=document.createElement('strong');number.textContent=amount;
+    const suffix=document.createElement('span');suffix.className=`score-unit unit-${kind}`;suffix.textContent=unit;
+    measurement.append(number,' ',suffix);
+    return measurement;
+  }
+  function scoreLabel(value,active,empty) {
     const label=document.createElement('div');label.className='score';
-    if (!active||empty) {label.textContent='—';label.setAttribute('aria-hidden','true');return label;}
+    if (!active||empty||metric==='distance'&&scores?.distance?.hi===0) {label.textContent='—';label.setAttribute('aria-hidden','true');return label;}
     label.classList.add('playable');
-    const value=scores?.moves.find(m=>m.move===move)?.total??null;
-    const best=scores?.optimal.includes(move);
-    const text=loading?'…':error?'Unavailable':value===null?'?':valueText(value);
-    label.classList.toggle('known',value!==null);
-    label.classList.toggle('loss',value!==null&&value<24);
-    label.classList.toggle('win',value!==null&&value>24);
-    label.classList.toggle('draw',value===24);
-    label.title=value===null?(loading?'Reading the saved solutions':error?'Solution data could not be read':'No saved score for this move'):`Perfect play: mover finishes with ${value} stones${best?'; an optimal move':''}`;
-    const full=document.createElement('span');full.className='full-value';full.textContent=text;
-    const compact=document.createElement('span');compact.className='compact-value';
-    if (value===null) compact.textContent=error?'—':text;
+    const best=value?.best;
+    label.classList.toggle('known',Boolean(value));
+    label.classList.toggle('loss',value?.outcome===-1);
+    label.classList.toggle('win',value?.outcome===1);
+    label.classList.toggle('draw',value?.outcome===0);
+    label.title=value?`${value.title}${best?'; an optimal move':''}`:
+      loading?'Reading the saved solutions':error?'Solution data could not be read':'No saved result for this move';
+    const display=document.createElement('span');display.className='score-value';
+    if (!value) display.textContent=loading?'…':error?'—':'?';
     else {
-      const result=document.createElement('span');result.className='compact-result';result.textContent=value>24?'Win':value===24?'Draw':'Loss';
-      const number=document.createElement('strong');number.textContent=value;
-      compact.append(result,number);
+      const result=document.createElement('span');result.className='score-result';result.textContent=value.name;
+      display.append(result);
+      if (value.amount!==null) {
+        const separator=document.createElement('span');separator.className='score-separator';separator.textContent=' ·';
+        separator.setAttribute('aria-hidden','true');
+        display.append(separator,' ',scoreMeasurement(value.amount,value.unit,value.kind));
+      }
     }
-    label.append(full,compact);
+    label.append(display);
     if (best) {const star=document.createElement('span');star.className='score-star';star.textContent='★';label.append(star);}
     return label;
   }
@@ -86,11 +109,24 @@
     if (!over) {const dot=document.createElement('span');dot.className='turn-dot';$('turn-heading').append(dot);}
     document.querySelector('.position-heading').classList.toggle('player-2',state.turn===1);
     const total=scores?.exactTotal??null;
-    let verdict=loading?'Reading solutions…':error?'Scores unavailable':total===null?'Exact result not in this collection':total===24?'Draw · 24–24':`Player ${(total>24?state.turn:1-state.turn)+1} wins · ${Math.max(total,48-total)}–${Math.min(total,48-total)}`;
+    let verdict=loading?'Reading solutions…':error?'Scores unavailable':'Exact result not in this collection';
     if (total===null&&!loading&&!error&&Math.max(...state.stores)>=25) verdict=`Player ${state.stores[0]>=25?1:2} has secured a win`;
+    const distance=KalahDistance.preferredLabel(scores?.distance,total,metric);
+    let measurement=null;
+    if (distance) {
+      verdict=`Player ${state.turn+1} · ${distance.name}`;
+      if (distance.amount!==null) {
+        verdict+=' in ';
+        measurement=scoreMeasurement(distance.amount,distance.unit,'distance');
+      }
+    } else if (total!==null) {
+      verdict=total===24?'Draw · ':`Player ${(total>24?state.turn:1-state.turn)+1} wins · `;
+      measurement=scoreMeasurement(`${Math.max(total,48-total)}–${Math.min(total,48-total)}`,'stones','stones');
+    }
     if (animation) verdict=frame.kind==='capture'?`Captured ${animation.edge.capture} stones`:frame.kind==='sweep'?'Collecting remaining stones':`${frame.inHand} ${frame.inHand===1?'stone':'stones'} in hand`;
     document.querySelector('.verdict .eyebrow').textContent=animation?'MOVE IN PROGRESS':'PERFECT PLAY';
-    $('position-score').textContent=verdict;
+    $('position-score').replaceChildren(verdict);
+    if (measurement&&!animation) $('position-score').append(measurement);
     for (const [id,player] of [['top-heading',top],['bottom-heading',bottom]]) {
       const el=$(id);el.className=`side-heading ${id==='bottom-heading'?'bottom-heading ':''}player-${player+1}`;
       el.textContent=`PLAYER ${player+1}`;
@@ -106,10 +142,10 @@
         const num=document.createElement('span');num.className='pit-number';num.textContent=move+1;num.setAttribute('aria-hidden','true');
         const button=document.createElement('button');button.className='pit';button.textContent=n;button.disabled=!active||!n;
         button.dataset.player=player;button.dataset.pit=move+1;
-        const value=scores?.moves.find(m=>m.move===move)?.total??null;
-        button.setAttribute('aria-label',`Player ${player+1}, pocket ${move+1}, ${n} stones${active&&value!==null?`, perfect-play final total ${value}${scores?.optimal.includes(move)?', optimal move':''}`:''}`);
+        const value=active?moveDisplay(move):null;
+        button.setAttribute('aria-label',`Player ${player+1}, pocket ${move+1}, ${n} stones${value?`, ${value.title}${value.best?', optimal move':''}`:''}`);
         button.addEventListener('click',()=>play(move));
-        const label=scoreLabel(move,active,!n);
+        const label=scoreLabel(value,active,!n);
         cell.append(...(isTop?[label,button,num]:[num,button,label]));grid.append(cell);
       }
     }
@@ -122,9 +158,10 @@
     }
     $('previous').disabled=cursor===0;$('next').disabled=cursor===history.length-1;
     $('history-position').textContent=cursor===0?'Starting position':`Move ${cursor} of ${history.length-1}`;
-    $('data-status').textContent=animation?'Sowing stones…':error|| (loading?'Reading saved solutions…':'Saved solutions · Loaded only as needed');
-    document.querySelector('.data-status').classList.toggle('error',Boolean(error));$('retry').hidden=!error||location.protocol==='file:';
-    $('coverage-note').textContent='A question mark means this collection does not have the score.';
+    $('metric-legend').textContent=metric==='distance'?'Best proven distance':'Highest final score';
+    const warning=error||scores?.warning;
+    $('data-status').textContent=animation?'Sowing stones…':warning|| (loading?'Reading saved solutions…':'Saved solutions · Loaded only as needed');
+    document.querySelector('.data-status').classList.toggle('error',Boolean(warning));$('retry').hidden=!warning||location.protocol==='file:';
   }
   function play(move) {
     if (animation||$('edit-dialog').open||$('rules-dialog').open||!G.legalMoves(current()).includes(move)) return;
@@ -163,6 +200,12 @@
   $('flip').onclick=()=>{flipped=!flipped;save();render();};
   $('previous').onclick=()=>step(-1);$('next').onclick=()=>step(1);
   $('animate-sowing').checked=animateSowing;
+  $('evaluation-metric').value=metric;
+  $('evaluation-metric').onchange=()=>{
+    metric=$('evaluation-metric').value;
+    save();
+    if (!animation) analyze();
+  };
   $('animate-sowing').onchange=()=>{
     animateSowing=$('animate-sowing').checked;save();
     if (!animateSowing&&animation) {cancelSowing();analyze();}

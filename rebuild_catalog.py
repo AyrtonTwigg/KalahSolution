@@ -14,6 +14,8 @@ def build(root=ROOT):
     entries=[]
     files={}
     for folder in sorted((p for p in data.iterdir() if p.is_dir()),key=lambda p:("Stone" not in p.name,"Optimal" not in p.name,p.name)):
+        if folder.name == "Distance":
+            continue  # The distance exporter maintains its own catalog and format.
         source=folder/"catalog.json"
         if source.exists():
             manifest=json.loads(source.read_text(encoding="utf8"))

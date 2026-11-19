@@ -1,0 +1,382 @@
+{
+  "format": "kalah-distance-web-v1",
+  "rules": "kalah6-4.bounds.v1.stop25.sweep.shortest-draw.crc32-16",
+  "packs": [
+    {
+      "stone": 2,
+      "min": 406,
+      "max": 3414,
+      "records": 56,
+      "file": "02-9e30bf11654788ccff9e.bin",
+      "sha256": "9e30bf11654788ccff9ee1b78eebdd00dd9497a5696320ef0ec1d89cc5b5a5f6"
+    },
+    {
+      "stone": 3,
+      "min": 405,
+      "max": 18966,
+      "records": 374,
+      "file": "03-056abfc40962d0ee34ce.bin",
+      "sha256": "056abfc40962d0ee34ce9deacf62d18ec36d3c72d66d17db72532c4dcfba07f0"
+    },
+    {
+      "stone": 4,
+      "min": 404,
+      "max": 79191,
+      "records": 1367,
+      "file": "04-7086d3d09af506361092.bin",
+      "sha256": "7086d3d09af50636109292bf5763d3d1ee352cc87f9c41da7068d2ac763192cd"
+    },
+    {
+      "stone": 5,
+      "min": 404,
+      "max": 262612,
+      "records": 3591,
+      "file": "05-b648aa1ba03a7c910fea.bin",
+      "sha256": "b648aa1ba03a7c910fea4c068bcc291ef3870355801549892cff590258b5fd29"
+    },
+    {
+      "stone": 6,
+      "min": 403,
+      "max": 760728,
+      "records": 6731,
+      "file": "06-10902dec54948bdf76aa.bin",
+      "sha256": "10902dec54948bdf76aaef9da4882220038b4a3d88a9b58fc4db49cb502d21a3"
+    },
+    {
+      "stone": 7,
+      "min": 404,
+      "max": 1982421,
+      "records": 10058,
+      "file": "07-aa6a562d3d29f988cfd4.bin",
+      "sha256": "aa6a562d3d29f988cfd4ac5fa3c5972bcb9a52d0257982e0db16b155b97a5b53"
+    },
+    {
+      "stone": 8,
+      "min": 402,
+      "max": 4754389,
+      "records": 12625,
+      "file": "08-f5c6ed026730c1244982.bin",
+      "sha256": "f5c6ed026730c124498299bad8b23dc2f61fffde1e7e5867a1c2bdc77639d5b5"
+    },
+    {
+      "stone": 9,
+      "min": 406,
+      "max": 10583509,
+      "records": 14013,
+      "file": "09-5df4a821e54c22d250c7.bin",
+      "sha256": "5df4a821e54c22d250c7009cacc5c1bea8aa0f7c5569619bf9cfcedae7fd8a7f"
+    },
+    {
+      "stone": 10,
+      "min": 402,
+      "max": 22375503,
+      "records": 15058,
+      "file": "10-e7884a34726a843b1324.bin",
+      "sha256": "e7884a34726a843b1324a0664c75231428f0113cc0f6206b5d69b89fbb1a67f3"
+    },
+    {
+      "stone": 11,
+      "min": 533,
+      "max": 44860624,
+      "records": 15080,
+      "file": "11-ac384f2e59f6b318e45d.bin",
+      "sha256": "ac384f2e59f6b318e45db1fe0358a9b9eb61df230827e5eb81f508c5ee7eba64"
+    },
+    {
+      "stone": 12,
+      "min": 534,
+      "max": 86105870,
+      "records": 13608,
+      "file": "12-4a0810764a3027456379.bin",
+      "sha256": "4a0810764a30274563798dedd7de74d10d63c00456287be6fd096b6c29c17c62"
+    },
+    {
+      "stone": 13,
+      "min": 404,
+      "max": 159198351,
+      "records": 11338,
+      "file": "13-75cad252c8ecde6879b6.bin",
+      "sha256": "75cad252c8ecde6879b6b699965b68166e83c84d0bdac67b463a1b0baa589cb8"
+    },
+    {
+      "stone": 14,
+      "min": 471,
+      "max": 284379606,
+      "records": 8648,
+      "file": "14-9d9ae6e01a5f20cf6f6a.bin",
+      "sha256": "9d9ae6e01a5f20cf6f6a0fb6df39ac9298855a71286282b51873f43aff47e4a9"
+    },
+    {
+      "stone": 15,
+      "min": 531,
+      "max": 492844819,
+      "records": 6830,
+      "file": "15-5707ae5c54ce7d73aeb9.bin",
+      "sha256": "5707ae5c54ce7d73aeb9606932c0cf36c7c671b5d14282ea2b3d7c3261aad9bb"
+    },
+    {
+      "stone": 16,
+      "min": 399,
+      "max": 832636686,
+      "records": 5659,
+      "file": "16-647aafe8f089d1a3dbca.bin",
+      "sha256": "647aafe8f089d1a3dbca54adea89b4fd39e43fbbad0d2ee4d642c4fb76b03ba5"
+    },
+    {
+      "stone": 17,
+      "min": 402,
+      "max": 1371597259,
+      "records": 4933,
+      "file": "17-3600bbf8c9b1f2af5069.bin",
+      "sha256": "3600bbf8c9b1f2af5069b3ea82a30b63ea04ce683f6defe6878592529536c965"
+    },
+    {
+      "stone": 18,
+      "min": 401,
+      "max": 2211369607,
+      "records": 4603,
+      "file": "18-2cbb92845273484cdf60.bin",
+      "sha256": "2cbb92845273484cdf60f1afc24545e5bf8b21d9a55235e9e6a04d1111a282c8"
+    },
+    {
+      "stone": 19,
+      "min": 401,
+      "max": 3493376071,
+      "records": 4217,
+      "file": "19-5b492bc3a94d677869c8.bin",
+      "sha256": "5b492bc3a94d677869c8ddb6778177071f77979e8e7ab4f6e36d4546a525278e"
+    },
+    {
+      "stone": 20,
+      "min": 404,
+      "max": 5415010246,
+      "records": 3946,
+      "file": "20-2b097484fab5ca66c90b.bin",
+      "sha256": "2b097484fab5ca66c90b26b2707eab48863ddc440ae4038047113afe9943e781"
+    },
+    {
+      "stone": 21,
+      "min": 1101,
+      "max": 8253257488,
+      "records": 3895,
+      "file": "21-c4d4080c669db4e1a50d.bin",
+      "sha256": "c4d4080c669db4e1a50d17bd5485e2e814ccb14884fadd7d75a175f09c170120"
+    },
+    {
+      "stone": 22,
+      "min": 397,
+      "max": 12381077130,
+      "records": 3716,
+      "file": "22-978d088691951675ba8e.bin",
+      "sha256": "978d088691951675ba8e57d264dbf7763b59bf92032a1b90c23174cc2fba30c8"
+    },
+    {
+      "stone": 23,
+      "min": 6220,
+      "max": 18302903689,
+      "records": 3516,
+      "file": "23-3d467650fea48ae25cd3.bin",
+      "sha256": "3d467650fea48ae25cd34f2161c12387b8de6de41a4d33ab6adbb5b60b0390f9"
+    },
+    {
+      "stone": 24,
+      "min": 21200,
+      "max": 26692677385,
+      "records": 3419,
+      "file": "24-33708b390cff8edfaf39.bin",
+      "sha256": "33708b390cff8edfaf39ba783aef3fb98d847a926afbb9f7642e5324019e407f"
+    },
+    {
+      "stone": 25,
+      "min": 21450,
+      "max": 38435328326,
+      "records": 3211,
+      "file": "25-9f504acf37451315afa4.bin",
+      "sha256": "9f504acf37451315afa4d46a84fb3a0f00f591129d931a7d3d8a5c4d0167d25a"
+    },
+    {
+      "stone": 26,
+      "min": 386254,
+      "max": 54700693319,
+      "records": 2834,
+      "file": "26-4bb35c5d141e0721516c.bin",
+      "sha256": "4bb35c5d141e0721516cd6f86f91c0ffa50f01b2d354aa6f54b6bdb8e9c3d52b"
+    },
+    {
+      "stone": 27,
+      "min": 197130,
+      "max": 76972299400,
+      "records": 2533,
+      "file": "27-0a2c9dd14d5578128b2a.bin",
+      "sha256": "0a2c9dd14d5578128b2acce02aae24b02fc9e9ee8fe9f5269b9cd52800edbf5c"
+    },
+    {
+      "stone": 28,
+      "min": 591753,
+      "max": 107239904583,
+      "records": 2485,
+      "file": "28-26d0505e9614b88e4946.bin",
+      "sha256": "26d0505e9614b88e49461d0efc76b800972a659dbb6dd62fd6d938efef0d7c1b"
+    },
+    {
+      "stone": 29,
+      "min": 1514952,
+      "max": 147923979083,
+      "records": 2430,
+      "file": "29-cacf590ae90a43573824.bin",
+      "sha256": "cacf590ae90a43573824dfbd8aa1d1677332d0e54f97bb19fa46959e5702599d"
+    },
+    {
+      "stone": 30,
+      "min": 3780359,
+      "max": 202161162762,
+      "records": 2097,
+      "file": "30-271f08b920fa25448d7d.bin",
+      "sha256": "271f08b920fa25448d7d689089f4bef3f3a6cfdc94f2e37e45f60570a886a1ce"
+    },
+    {
+      "stone": 31,
+      "min": 12493063,
+      "max": 273913648581,
+      "records": 1982,
+      "file": "31-bfa1e766f39a9b393687.bin",
+      "sha256": "bfa1e766f39a9b393687cab9408d141390f3e41218f6dd81cc763b39a97b141b"
+    },
+    {
+      "stone": 32,
+      "min": 682794886,
+      "max": 368011214021,
+      "records": 1736,
+      "file": "32-4f7d44fc17648a62af99.bin",
+      "sha256": "4f7d44fc17648a62af99b83d373e11acdc6a51de9d4711b739f46fe54a5c2bbb"
+    },
+    {
+      "stone": 33,
+      "min": 120364359,
+      "max": 490778686853,
+      "records": 1704,
+      "file": "33-9973a5cf7aef4467d172.bin",
+      "sha256": "9973a5cf7aef4467d172b1b419ba46bd3f8e75c3c170c092afd279315a224ec4"
+    },
+    {
+      "stone": 34,
+      "min": 430622214,
+      "max": 649464672837,
+      "records": 1588,
+      "file": "34-e6cd622e17058db4cbd2.bin",
+      "sha256": "e6cd622e17058db4cbd2b10f3f2328bd3a3411215d0a4afdbb0e0781adb7afab"
+    },
+    {
+      "stone": 35,
+      "min": 737470341,
+      "max": 853611174787,
+      "records": 1454,
+      "file": "35-9da0dea152b6fc81c250.bin",
+      "sha256": "9da0dea152b6fc81c25022bf3a94bcf767e54e7ccb8c78c17ddc66658221ed38"
+    },
+    {
+      "stone": 36,
+      "min": 1519718149,
+      "max": 1114507249410,
+      "records": 1331,
+      "file": "36-8bec89ef326a8c21684b.bin",
+      "sha256": "8bec89ef326a8c21684b1b42810b7dcb58fe28619ca51427e9316f548c09935c"
+    },
+    {
+      "stone": 37,
+      "min": 4196466372,
+      "max": 1445831403908,
+      "records": 1175,
+      "file": "37-a2981ede1a7830afaa78.bin",
+      "sha256": "a2981ede1a7830afaa78c3a58c80fb7a0570457249ac5d1c4ebd2dd895ba5a4d"
+    },
+    {
+      "stone": 38,
+      "min": 12498599493,
+      "max": 1864402107013,
+      "records": 972,
+      "file": "38-ada4024c68e72474992a.bin",
+      "sha256": "ada4024c68e72474992a5d4781b69bf6ff319a70cf358cc8e9baf3759e3d2169"
+    },
+    {
+      "stone": 39,
+      "min": 38133360131,
+      "max": 2390304237060,
+      "records": 904,
+      "file": "39-b59209e6140570543cb0.bin",
+      "sha256": "b59209e6140570543cb0646b91281cbab43d41e1e30cf0d90348876199b60aa9"
+    },
+    {
+      "stone": 40,
+      "min": 48087803075,
+      "max": 3042786573634,
+      "records": 862,
+      "file": "40-66c59492ed88a0425210.bin",
+      "sha256": "66c59492ed88a0425210db804b6ececa9012bf423eaf84bad10a3d5960649658"
+    },
+    {
+      "stone": 41,
+      "min": 116903851075,
+      "max": 3862981994819,
+      "records": 691,
+      "file": "41-12baa130d2d12a60daf1.bin",
+      "sha256": "12baa130d2d12a60daf1b137ab836e4faa6b886b585e5823874b7aeaddc40e63"
+    },
+    {
+      "stone": 42,
+      "min": 313534354114,
+      "max": 4869647715970,
+      "records": 737,
+      "file": "42-759e8833b4080ad8190d.bin",
+      "sha256": "759e8833b4080ad8190d7b337ca6c2da0a323fd1886bb8567576a58443543ba6"
+    },
+    {
+      "stone": 43,
+      "min": 498918771011,
+      "max": 6122508777217,
+      "records": 742,
+      "file": "43-32764d64b3f090a000a3.bin",
+      "sha256": "32764d64b3f090a000a3061e29a1d324cb3439a1a04be803838cba20434cf05f"
+    },
+    {
+      "stone": 44,
+      "min": 664108210370,
+      "max": 7654150953536,
+      "records": 574,
+      "file": "44-b18b1c903458935a826b.bin",
+      "sha256": "b18b1c903458935a826b5edfbfc067d3efb7d13755bc99e372a41b0b86cb9916"
+    },
+    {
+      "stone": 45,
+      "min": 1145845230786,
+      "max": 9499422698880,
+      "records": 421,
+      "file": "45-1b84d1a1ca846dbea048.bin",
+      "sha256": "1b84d1a1ca846dbea048655f3a47896efee10f88a59caa91df4369d481c23bb7"
+    },
+    {
+      "stone": 46,
+      "min": 1938484741185,
+      "max": 11577105419712,
+      "records": 193,
+      "file": "46-8d613a3d6868b58db490.bin",
+      "sha256": "8d613a3d6868b58db49015d5da02dd366b5a45b1b45ec2d7949fbca55464ae65"
+    },
+    {
+      "stone": 47,
+      "min": 2955726097920,
+      "max": 12916560688576,
+      "records": 47,
+      "file": "47-588902a1246ec0d2da3f.bin",
+      "sha256": "588902a1246ec0d2da3f74b00d68652b64dc614e22e8d784c0cb36c4f1718d7b"
+    },
+    {
+      "stone": 48,
+      "min": 5234022376384,
+      "max": 6701889977088,
+      "records": 5,
+      "file": "48-25222b526132b43e1600.bin",
+      "sha256": "25222b526132b43e16004ab6eae2d3f2a09ce0c6aacf7a7f3863afccac620f40"
+    }
+  ]
+}
